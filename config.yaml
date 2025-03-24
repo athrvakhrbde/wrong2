@@ -3,8 +3,14 @@ languageCode: "en-us"
 title: "Wrong"
 theme: "hugo-theme-novela"
 
+paginate: 6
+summaryLength: 30
+
 params:
   description: "Welcome to Wrong"
+  images: ["site-feature-image.jpg"]
+  title: "Wrong"
+  subtitle: "A Hugo Blog Theme"
   hero:
     heading: "Welcome to Wrong"
     maxWidth: 652
@@ -17,8 +23,22 @@ params:
 
 taxonomies:
   author: authors
+  tag: tags
+  category: categories
 
 markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    noClasses: false
+    style: monokai
+
+outputs:
+  home: ["HTML", "RSS"]
+  section: ["HTML", "RSS"]
+  taxonomy: ["HTML"]
+  term: ["HTML"]

@@ -1,13 +1,12 @@
 {{ define "main" }}
-
-<section class="section narrow">
-
-    {{ partial "page/hero.html" . }}
-
-    <article  id="articleContent" class="post-content">
-        {{ .Content }}
-    </article>
-    
-</section>
-
+<article class="center cf pv5 ph3 ph4-ns mw7">
+  <header>
+    <h1 class="f1">
+      {{ .Title }}
+    </h1>
+  </header>
+  <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "mid-gray" }}">
+    {{ .Content }}
+  </div>
+</article>
 {{ end }}
