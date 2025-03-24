@@ -21,6 +21,13 @@ logo_url: /images/logo.png
 
 local_backend: false
 
+# Add identity backend for authentication
+backend:
+  name: git-gateway
+  branch: main
+  identity_url: https://wrong.athrvakhrbde.com/.netlify/identity
+  gateway_url: https://wrong.athrvakhrbde.com/.netlify/git
+
 collections:
   - name: "post"
     label: "Posts"
