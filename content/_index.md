@@ -1,6 +1,8 @@
 ---
 title: Behenchaara
-hero: /images/uploads/black-white-arms-meme-template-full-a937e5db.webp
+hero:
+  heading: Behenchaara
+  maxWidth: 652
 ---
 Question: "Behenchaara", why are you reading this for the first time? Atharva is damn sure, you've never heard of this word before. 
 

@@ -1,12 +1,11 @@
 ---
 title: Wrong Team
 bio: |
-  The Wrong Team is dedicated to creating amazing content and sharing valuable insights.
-avatar: /images/wrong-team.jpg
+  The Wrong Team challenges conventional perspectives and explores unique ideas about human relationships and social dynamics.
 featured: true
 social:
   - title: github
-    url: https://github.com/forestryio/novela-hugo-starter
+    url: https://github.com/athrvakhrbde
   - title: twitter
-    url: https://twitter.com/forestryio
+    url: https://twitter.com/athrvakhrbde
 --- 
