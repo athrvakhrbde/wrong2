@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "hugo server -D",
     "build": "npm run build:production",
-    "build:production": "your-build-command",
-    "build:preview": "your-preview-build-command",
-    "build:branch": "your-branch-build-command",
+    "build:production": "hugo --gc --minify",
+    "build:preview": "hugo --gc --minify",
+    "build:branch": "hugo --gc --minify",
     "start": "hugo server -D"
   },
   "dependencies": {

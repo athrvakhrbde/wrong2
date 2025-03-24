@@ -37,10 +37,11 @@ status = 404
   to = "/admin/"
   status = 301
 
+# Add security headers
 [[headers]]
   for = "/*"
   [headers.values]
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Security = "max-age=31536000; includeSubDomains; preload"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
