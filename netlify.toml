@@ -1,11 +1,17 @@
 [build]
 publish = "public"
-command = "hugo --minify"
+command = "hugo --gc --minify"
 
 [build.environment]
-HUGO_VERSION = "0.121.1"
+HUGO_VERSION = "0.121.0"
 GO_VERSION = "1.21.1"
 HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+
+[[redirects]]
+from = "/*"
+to = "/404.html"
+status = 404
 
 [[redirects]]
   from = "http://*"
@@ -49,3 +55,10 @@ HUGO_ENV = "production"
 # This is a starter template for Netlify builds. See the following links for more:
 # https://www.netlify.com/docs/continuous-deployment/#deploy-contexts
 # https://www.netlify.com/blog/2017/04/11/netlify-plus-hugo-0.20-and-beyond/
+
+[context.production.environment]
+HUGO_ENV = "production"
+
+[dev]
+framework = "hugo"
+targetPort = 1313
