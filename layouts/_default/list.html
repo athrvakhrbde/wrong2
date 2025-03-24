@@ -1,86 +1,123 @@
 {{ define "main" }}
-<section class="section narrow">
-    <div class="articles-grid-container">
-        {{ $pages := where .Site.RegularPages "Type" "post" }}
-        {{ range $pages }}
-            <article class="article-card">
-                {{ if .Params.hero }}
-                <div class="article-image">
-                    <img src="{{ .Params.hero }}" alt="{{ .Title }}">
-                </div>
-                {{ end }}
-                <div class="article-content">
-                    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-                    <div class="article-metadata">
-                        {{ .Date.Format "January 2, 2006" }}
-                        {{ with .Params.authors }}
-                        · {{ delimit . ", " }}
-                        {{ end }}
-                    </div>
-                    <div class="article-excerpt">
-                        {{ .Summary }}
-                    </div>
-                </div>
-            </article>
-        {{ end }}
-    </div>
-</section>
+<div class="posts-list">
+  <header class="list-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <div class="posts-grid">
+    {{ range where .Site.RegularPages "Type" "post" }}
+    <article class="post-card">
+      {{ with .Params.hero }}
+      <div class="post-image">
+        <img src="{{ . }}" alt="{{ $.Title }}" />
+      </div>
+      {{ end }}
+      <div class="post-content">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <div class="post-meta">
+          <time>{{ .Date.Format "January 2, 2006" }}</time>
+          {{ with .Params.authors }}
+          <span class="authors">
+            {{ range . }}
+            <span class="author">{{ . }}</span>
+            {{ end }}
+          </span>
+          {{ end }}
+        </div>
+        <div class="post-summary">
+          {{ .Summary }}
+        </div>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</div>
 
 <style>
-.section.narrow {
-    max-width: 1220px;
-    margin: 0 auto;
-    padding: 0 20px;
+.posts-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--color-background);
+  color: var(--color-text);
 }
 
-.articles-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 32px;
-    margin: 60px 0;
+.list-header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-.article-card {
-    background: var(--card);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s ease;
+.list-header h1 {
+  font-size: 2.5rem;
+  margin: 0;
 }
 
-.article-card:hover {
-    transform: translateY(-2px);
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-.article-image img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.post-card {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
 }
 
-.article-content {
-    padding: 20px;
+.post-card:hover {
+  transform: translateY(-4px);
 }
 
-.article-content h2 {
-    margin: 0 0 10px;
-    font-size: 24px;
+.post-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.article-content h2 a {
-    color: var(--primary);
-    text-decoration: none;
+.post-content {
+  padding: 1.5rem;
 }
 
-.article-metadata {
-    font-size: 14px;
-    color: var(--grey);
-    margin-bottom: 10px;
+.post-content h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  line-height: 1.3;
 }
 
-.article-excerpt {
-    color: var(--secondary);
-    font-size: 16px;
-    line-height: 1.6;
+.post-content h2 a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.post-content h2 a:hover {
+  color: var(--color-primary);
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+}
+
+.post-meta > * + * {
+  margin-left: 1rem;
+}
+
+.post-summary {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .posts-list {
+    padding: 1rem;
+  }
+  
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 {{ end }} 
