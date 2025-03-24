@@ -28,27 +28,27 @@
       CMS.registerEventListener({
         name: 'publish',
         handler: () => {
-          location.reload();
+          window.location.href = 'https://wrong.athrvakhrbde.com';
         },
       });
 
       CMS.registerEventListener({
         name: 'unpublish',
         handler: () => {
-          location.reload();
+          window.location.href = 'https://wrong.athrvakhrbde.com';
         },
       });
 
       CMS.registerEventListener({
         name: 'delete',
         handler: () => {
-          location.reload();
+          window.location.href = 'https://wrong.athrvakhrbde.com';
         },
       });
 
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("logout", () => {
-          document.location.href = "/";
+          window.location.href = 'https://wrong.athrvakhrbde.com';
         });
       }
     </script>
@@ -93,4 +93,4 @@
       }
     </style>
   </body>
-</html> 
+</html>

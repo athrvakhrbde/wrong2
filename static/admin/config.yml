@@ -1,6 +1,8 @@
 backend:
   name: git-gateway
   branch: main
+  repo: athrvakhrbde/wrong2
+  site_domain: wrong.athrvakhrbde.com
   commit_messages:
     create: 'Create {{collection}} "{{slug}}"'
     update: 'Update {{collection}} "{{slug}}"'
@@ -16,6 +18,8 @@ public_folder: /images
 site_url: https://wrong.athrvakhrbde.com
 display_url: https://wrong.athrvakhrbde.com
 logo_url: /images/logo.png
+
+local_backend: false
 
 collections:
   - name: "post"
@@ -57,4 +61,4 @@ collections:
               {label: "Heading", name: "heading", widget: "string"},
               {label: "Max Width", name: "maxWidth", widget: "number", default: 652}
             ]}
-          - {label: "Body", name: "body", widget: "markdown"} 
+          - {label: "Body", name: "body", widget: "markdown"}
