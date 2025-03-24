@@ -6,6 +6,12 @@ command = "hugo --gc --minify"
 HUGO_VERSION = "0.69.0"
 
 [[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
@@ -14,6 +20,15 @@ HUGO_VERSION = "0.69.0"
   from = "/admin"
   to = "/admin/"
   status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 
 [build.processing]
   skip_processing = false
