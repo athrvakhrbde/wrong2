@@ -12,6 +12,11 @@ local_backend: true
 media_folder: static/images/uploads
 public_folder: /images/uploads
 
+# Remove Decap CMS branding
+site_url: https://wrong.athrvakhrbde.com
+display_url: https://wrong.athrvakhrbde.com
+logo_url: /images/logo.png
+
 collections:
   - name: "posts"
     label: "Posts"
@@ -21,8 +26,6 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Time to Read", name: "timeToRead", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
       - label: "Authors"
         name: "authors"
@@ -52,11 +55,11 @@ collections:
         label: "Home"
         name: "home"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Title", name: "title", widget: "string", default: "Atharva might be wrong, but..."}
           - label: "Hero"
             name: "hero"
             widget: "object"
             fields:
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Max Width", name: "maxWidth", widget: "number", default: 652}
+              - {label: "Heading", name: "heading", widget: "string", default: "Atharva might be wrong, but..."}
+              - {label: "Max Width", name: "maxWidth", widget: "hidden", default: 652}
           - {label: "Body", name: "body", widget: "markdown"} 

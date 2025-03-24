@@ -1,7 +1,7 @@
 ---
-title: Behenchaara
+title: Atharva might be wrong, but...
 hero:
-  heading: Behenchaara
+  heading: Atharva might be wrong, but...
   maxWidth: 652
 ---
 Question: "Behenchaara", why are you reading this for the first time? Atharva is damn sure, you've never heard of this word before. 
