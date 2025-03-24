@@ -1,4 +1,4 @@
-baseURL: "https://wrong.athrvakhrbde.com/"
+baseURL: "https://wrong.athrvakhrbde.com"
 languageCode: "en-us"
 title: "Wrong"
 theme: "hugo-theme-novela"
@@ -11,12 +11,13 @@ outputs:
 
 social:
   twitter: "https://twitter.com/athrvakhrbde"
+  github: "https://github.com/athrvakhrbde"
 
 taxonomies:
   author: authors
 
 params:
-  description: "Exploring unconventional perspectives on human relationships"
+  description: "Exploring unconventional perspectives on human relationships."
   hero:
     heading: "Atharva might be wrong, but..."
     maxWidth: 652
@@ -25,3 +26,9 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+  social:
+    - name: twitter
+      url: "https://twitter.com/athrvakhrbde"
+    - name: github
+      url: "https://github.com/athrvakhrbde"
