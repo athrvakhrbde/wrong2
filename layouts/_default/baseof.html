@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
     {{- partial "head/head.html" . -}}
-    <body>
+    <body style="min-height: 100vh; display: flex; flex-direction: column;">
         {{- partial "header.html" . -}}
-        <main>
+        <main style="flex: 1;">
         {{- block "main" . }}{{- end }}
         </main>
         {{- partial "footer.html" . -}}
-        {{ if .IsHome }}
+
+        <!-- Theme Scripts -->
+        <script src="{{ "js/toggleColors.js" | absURL }}"></script>
         <script>
             if (window.netlifyIdentity) {
                 window.netlifyIdentity.on("init", user => {
@@ -19,6 +21,5 @@
                 });
             }
         </script>
-        {{ end }}
     </body>
 </html> 

@@ -50,6 +50,20 @@
           }
         });
       }
+
+      // Add this to handle redirection after successful publish
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("logout", () => {
+          document.location.href = "/";
+        });
+      }
+
+      CMS.registerEventListener({
+        name: 'postPublish',
+        handler: () => {
+          window.location.href = '/';
+        },
+      });
     </script>
   </body>
 </html> 
