@@ -2,6 +2,7 @@ baseURL: "https://wrong.athrvakhrbde.com/"
 languageCode: "en-us"
 title: "Wrong"
 theme: "hugo-theme-novela"
+pygmentsstyle: 'monokai'
 
 paginate: 6
 
