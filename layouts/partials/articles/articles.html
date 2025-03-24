@@ -1,8 +1,109 @@
-
-<Section className="section narrow">
-  {{ partial "articles/list.html" . }}
-  <div class="articles-paginator">
-    
+{{ $posts := where .Site.RegularPages "Type" "post" }}
+{{ if gt (len $posts) 0 }}
+<section class="articles-section">
+  <div class="articles-grid">
+    {{ range $posts }}
+    <article class="article-card">
+      {{ if .Params.hero }}
+      <div class="article-image">
+        <img src="{{ .Params.hero }}" alt="{{ .Title }}">
+      </div>
+      {{ end }}
+      <div class="article-content">
+        <h2 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ if .Params.excerpt }}
+        <p class="article-excerpt">{{ .Params.excerpt }}</p>
+        {{ end }}
+        <div class="article-metadata">
+          {{ if .Params.authors }}
+          <div class="article-authors">
+            {{ range .Params.authors }}
+            <span>{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ end }}
+          <time>{{ .Date.Format "January 2, 2006" }}</time>
+        </div>
+      </div>
+    </article>
+    {{ end }}
   </div>
-</Section>
-<div class="articles-gradient"></div>
+</section>
+
+<style>
+.articles-section {
+  padding: 4rem 0;
+  background: var(--background);
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.article-card {
+  background: var(--card);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+}
+
+.article-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-content {
+  padding: 1.5rem;
+}
+
+.article-title {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+}
+
+.article-title a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.article-excerpt {
+  color: var(--secondary);
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.article-metadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
+.article-authors span:not(:last-child):after {
+  content: ", ";
+}
+
+@media screen and (max-width: 768px) {
+  .articles-grid {
+    padding: 0 2rem;
+  }
+}
+</style>
+{{ end }}
