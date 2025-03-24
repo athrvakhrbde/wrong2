@@ -11,15 +11,15 @@
   }
 </script>
 {{ end }}
-<footer>
+<footer style="padding: 15px 0; text-align: center;">
   <div class="footer-gradient"></div>
-  <div class="footer-container">
-    <div class="footer-text">
+  <div class="footer-container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1220px; margin: 0 auto; padding: 0 20px;">
+    <div class="footer-text" style="color: var(--grey);">
       © {{ now.Format "2006"}} Wrong
     </div>
     <div class="social-links">
       {{ with .Site.Social.twitter }}
-      <a href="{{ . }}" target="_blank" rel="noopener">
+      <a href="{{ . }}" target="_blank" rel="noopener" style="color: var(--grey);">
         {{ partial "icons/social/twitter.html" . }}
       </a>
       {{ end }}
