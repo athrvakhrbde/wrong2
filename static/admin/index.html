@@ -24,46 +24,25 @@
       // Register preview styles
       CMS.registerPreviewStyle("/css/style.css");
 
-      // Handle all entry changes
-      CMS.registerEventListener({
-        name: 'change',
-        handler: () => {
-          console.log('Content changed');
-        },
-      });
-
-      // Handle before publishing
-      CMS.registerEventListener({
-        name: 'before-publish',
-        handler: () => {
-          console.log('About to publish');
-        },
-      });
-
-      // Handle after publishing
+      // Handle entry actions
       CMS.registerEventListener({
         name: 'publish',
         handler: () => {
-          console.log('Published');
-          window.location.href = '/';
+          location.reload();
         },
       });
 
-      // Handle unpublish
       CMS.registerEventListener({
         name: 'unpublish',
         handler: () => {
-          console.log('Unpublished');
-          window.location.href = '/';
+          location.reload();
         },
       });
 
-      // Handle delete
       CMS.registerEventListener({
         name: 'delete',
         handler: () => {
-          console.log('Deleted');
-          window.location.href = '/';
+          location.reload();
         },
       });
 
