@@ -1,13 +1,10 @@
 [build]
 publish = "public"
-command = """
-rm -rf themes/hugo-theme-novela
-git clone https://github.com/forestryio/hugo-theme-novela.git themes/hugo-theme-novela
-hugo --gc --minify
-"""
+command = "hugo --gc --minify"
 
 [build.environment]
 HUGO_VERSION = "0.121.0"
+GO_VERSION = "1.21.1"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 
