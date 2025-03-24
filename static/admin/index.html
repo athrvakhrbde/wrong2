@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Content Manager</title>
-    <!-- Include Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/@staticcms/app@^3.4.5/dist/static-cms-app.js"></script>
+    <div id="nc-root"></div>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-      window.CMS.init();
-
-      // Handle successful login
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
           if (!user) {
@@ -24,21 +20,6 @@
           }
         });
       }
-
-      // Handle successful publish
-      window.CMS.registerEventListener({
-        name: 'preSave',
-        handler: ({ entry }) => {
-          return entry;
-        },
-      });
-
-      window.CMS.registerEventListener({
-        name: 'postPublish',
-        handler: () => {
-          window.location.href = '/';
-        },
-      });
     </script>
 
     <style>
