@@ -3,7 +3,8 @@ languageCode: "en-us"
 title: "Wrong"
 theme: "hugo-theme-novela"
 
-paginate: 6
+pagination:
+  pagerSize: 6
 
 social:
   twitter: "https://twitter.com/forestryio"
