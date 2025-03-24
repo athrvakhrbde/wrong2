@@ -4,8 +4,8 @@
   "description": "Wrong website",
   "scripts": {
     "dev": "hugo server -D",
-    "build": "hugo --gc --minify --themesDir themes",
-    "postinstall": "hugo mod get -u"
+    "build": "hugo --gc --minify",
+    "setup": "git clone https://github.com/forestryio/hugo-theme-novela.git themes/hugo-theme-novela"
   },
   "dependencies": {
     "autoprefixer": "^10.4.19",

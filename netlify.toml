@@ -1,7 +1,8 @@
 [build]
 publish = "public"
 command = """
-mkdir -p themes
+rm -rf themes/hugo-theme-novela
+git clone https://github.com/forestryio/hugo-theme-novela.git themes/hugo-theme-novela
 npm install
 npm run build
 """
