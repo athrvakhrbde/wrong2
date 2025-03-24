@@ -1,7 +1,7 @@
 ---
 title: Behenchaara
 date: 2025-03-24T14:21:00.000Z
-hero: /images/uploads/black-white-arms-meme-template-full-a937e5db.webp
+hero: /images/uploads/black-white-arms-meme-template-full-a937e5db.jpg
 authors:
   - Not Atharva
 ---
