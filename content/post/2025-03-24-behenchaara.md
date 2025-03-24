@@ -1,6 +1,6 @@
 ---
 title: Behenchaara
-date: 2025-03-24T08:08:30.765Z
+date: 2025-03-24T14:04:00.000Z
 excerpt: " zcbfsbzfbs"
 timeToRead: 4
 authors:
@@ -24,3 +24,5 @@ If a guy gets into a fight, it's highly liked he can pull up a whole ass gang in
 Fighting is not a good thing, bad, very bad. But when you need your homie, he'll come. 
 
 Due to Atharva's limited interaction with female human species, he cannot & doesn't want to comment more. He might be wrong, but this is what he has to say.
+
+![](/images/uploads/black-white-arms-meme-template-full-a937e5db.webp)
