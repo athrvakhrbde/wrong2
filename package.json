@@ -1,10 +1,11 @@
 {
-  "name": "wrong",
+  "name": "wrong2",
   "version": "1.0.0",
   "description": "Wrong website",
   "scripts": {
     "dev": "hugo server -D",
-    "build": "hugo --gc --minify"
+    "build": "hugo --gc --minify",
+    "start": "hugo server -D"
   },
   "dependencies": {
     "autoprefixer": "^10.4.19",
@@ -12,6 +13,9 @@
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "hugo-bin": "^0.81.0"
   },
   "hugo": {
     "version": "0.121.0",

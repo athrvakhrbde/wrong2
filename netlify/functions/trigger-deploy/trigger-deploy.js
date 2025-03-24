@@ -34,4 +34,4 @@ exports.handler = async function(event, context) {
       body: JSON.stringify({ message: 'Failed to trigger build', error: error.message })
     };
   }
-} 
+}
