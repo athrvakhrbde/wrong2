@@ -34,8 +34,35 @@
             name: 'github',
             repo: 'athrvakhrbde/wrong2',
             branch: 'main',
-            site_domain: 'wrong.athrvakhrbde.com'
-          }
+            base_url: 'https://api.netlify.com',
+            auth_endpoint: 'auth',
+            commit_messages: {
+              create: 'Create {{collection}} "{{slug}}"',
+              update: 'Update {{collection}} "{{slug}}"',
+              delete: 'Delete {{collection}} "{{slug}}"',
+              uploadMedia: 'Upload "{{path}}"',
+              deleteMedia: 'Delete "{{path}}"'
+            }
+          },
+          load_config_file: false,
+          media_folder: "static/images/uploads",
+          public_folder: "/images/uploads",
+          collections: [{
+            name: "posts",
+            label: "Posts",
+            folder: "content/post",
+            create: true,
+            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+            fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Publish Date", name: "date", widget: "datetime" },
+              { label: "Featured Image", name: "thumbnail", widget: "image", required: false },
+              { label: "Body", name: "body", widget: "markdown" },
+              { label: "Tags", name: "tags", widget: "list", required: false },
+              { label: "Categories", name: "categories", widget: "list", required: false },
+              { label: "Draft", name: "draft", widget: "boolean", default: false }
+            ]
+          }]
         }
       });
 
