@@ -1,52 +1,62 @@
 backend:
   name: git-gateway
   branch: main
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: '[skip ci] Upload "{{path}}"'
+    deleteMedia: '[skip ci] Delete "{{path}}"'
 
-media_folder: "static/images" # Media files will be stored in the repo under static/images
-public_folder: "/images" # The src attribute for uploaded media will begin with /images
+local_backend: true
+media_folder: static/images/uploads
+public_folder: /images/uploads
 
 collections:
-  - name: "pages"
-    label: "Pages"
-    files:
-      - name: "home"
-        label: "Home Page"
-        file: "content/_index.md"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-          - label: "Hero Section"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Heading", name: "heading", widget: "string"}
-              - {label: "Max Width", name: "maxWidth", widget: "number", default: 652}
-
   - name: "posts"
-    label: "Blog Posts"
+    label: "Posts"
     folder: "content/post"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "hero", widget: "image", required: false}
       - {label: "Excerpt", name: "excerpt", widget: "text"}
-      - {label: "Authors", name: "authors", widget: "list"}
+      - {label: "Time to Read", name: "timeToRead", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Authors"
+        name: "authors"
+        widget: "list"
+        default: ["Wrong Team"]
 
   - name: "authors"
     label: "Authors"
     folder: "content/authors"
     create: true
+    slug: "{{slug}}"
     fields:
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Bio", name: "bio", widget: "text"}
-      - {label: "Avatar", name: "avatar", widget: "image"}
       - {label: "Featured", name: "featured", widget: "boolean", default: false}
       - label: "Social"
         name: "social"
         widget: "list"
         fields:
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "URL", name: "url", widget: "string"} 
+          - {label: "URL", name: "url", widget: "string"}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/_index.md"
+        label: "Home"
+        name: "home"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Max Width", name: "maxWidth", widget: "number", default: 652}
+          - {label: "Body", name: "body", widget: "markdown"} 
