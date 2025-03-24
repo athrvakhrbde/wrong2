@@ -4,6 +4,7 @@ command = "hugo --gc --minify"
 
 [build.environment]
 HUGO_VERSION = "0.69.0"
+GO_VERSION = "1.21.1"
 
 [[redirects]]
   from = "http://*"
