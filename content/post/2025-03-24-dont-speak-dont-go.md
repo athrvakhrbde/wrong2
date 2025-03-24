@@ -1,9 +1,9 @@
 ---
 title: Don't Speak, Don't Go
-date: 2025-03-24T20:46:00.000Z
+date: 2025-03-24T21:04:00.000Z
 hero: /images/uploads/tree-3080406_1920-1080x675.jpg
 authors:
-  - Wrong Team
+  - Not Atharva
 ---
 Alone, bored, lonely even, he’s sitting at a cafe, Atharva, just taking it all in.
 
