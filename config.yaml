@@ -7,6 +7,9 @@ paginate: 6
 
 params:
   description: "Exploring unconventional perspectives on human relationships"
+  hero:
+    heading: "Atharva might be wrong, but..."
+    maxWidth: 652
 
 social:
   twitter: "https://twitter.com/athrvakhrbde"
