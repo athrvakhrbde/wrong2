@@ -1,7 +1,9 @@
 baseURL: "https://wrong.athrvakhrbde.com"
 languageCode: "en-us"
-title: "Hugo Novela"
-pygmentsstyle: 'monokai'
+title: "Wrong"
+
+# Basic build settings
+disableKinds: ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
 
 # Enable Git info for last modified date
 enableGitInfo: true
