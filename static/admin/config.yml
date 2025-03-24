@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: athrvakhrbde/wrong2
+  branch: main
+
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+local_backend: true
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Categories", name: "categories", widget: "list", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false } 
