@@ -1,0 +1,123 @@
+/* Base styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+header a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+nav a {
+  margin-left: 20px;
+  font-size: 1rem;
+}
+
+/* Hero section */
+.hero {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Articles grid */
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.post-item {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.post-item:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.post-item h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.excerpt {
+  margin: 15px 0;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* More posts link */
+.more-posts {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.more-posts a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0366d6;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.more-posts a:hover {
+  background-color: #0056b3;
+  text-decoration: none;
+}
+
+/* 404 page */
+.page-not-found {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.page-not-found h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+  color: #666;
+} 
