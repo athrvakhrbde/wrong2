@@ -13,7 +13,7 @@
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
     <script>
-      // Netlify Identity
+      // Initialize Netlify Identity
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
           if (!user) {
@@ -23,6 +23,21 @@
           }
         });
       }
+
+      // Configure CMS
+      window.CMS_MANUAL_INIT = true;
+      
+      // Initialize the CMS
+      CMS.init({
+        config: {
+          backend: {
+            name: 'github',
+            repo: 'athrvakhrbde/wrong2',
+            branch: 'main',
+            site_domain: 'wrong.athrvakhrbde.com'
+          }
+        }
+      });
 
       // Preview styles
       CMS.registerPreviewStyle("/css/style.css");

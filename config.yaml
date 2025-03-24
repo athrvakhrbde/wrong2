@@ -1,4 +1,13 @@
-baseURL: "https://example.com"
+baseURL: "https://wrong.athrvakhrbde.com"
 languageCode: "en-us"
 title: "Hugo Novela"
 pygmentsstyle: 'monokai'
+
+# Enable Git info for last modified date
+enableGitInfo: true
+
+# Enable raw HTML in markdown
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
