@@ -7,21 +7,17 @@ media_folder: static/images/uploads
 public_folder: /images/uploads
 
 collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "content/posts"
+  - name: "content"
+    label: "Content"
+    folder: "content"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Content", name: "body", widget: "markdown" }
       - { label: "Featured Image", name: "hero", widget: "image", required: false }
-      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
-      - { label: "Authors", name: "authors", widget: "list", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list", required: false }
-      - { label: "Categories", name: "categories", widget: "list", required: false }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Show on Site", name: "draft", widget: "boolean", default: false }
 
   - name: "authors"
     label: "Authors"
