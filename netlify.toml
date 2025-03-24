@@ -60,3 +60,6 @@ HUGO_ENV = "production"
 [dev]
 framework = "hugo"
 targetPort = 1313
+
+[context.production]
+  command = "git submodule update --init --recursive && hugo"
