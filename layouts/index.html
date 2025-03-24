@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <div class="home-container">
+    <div class="hero">
+      <h1>{{ .Site.Params.hero.heading }}</h1>
+    </div>
+    
+    <div class="articles-grid">
+      {{ $pages := where .Site.RegularPages "Type" "post" }}
+      {{ range first 6 $pages }}
+        <article class="article-item">
+          <a href="{{ .Permalink }}">
+            <h2>{{ .Title }}</h2>
+          </a>
+          <div class="article-excerpt">
+            {{ .Summary }}
+          </div>
+          <div class="article-meta">
+            {{ .Date.Format "January 2, 2006" }}
+          </div>
+          <a href="{{ .Permalink }}" class="read-more">Read More</a>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+{{ end }} 
