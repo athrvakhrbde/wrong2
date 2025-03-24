@@ -28,35 +28,35 @@
       CMS.registerEventListener({
         name: 'preSave',
         handler: ({ entry }) => {
-          // Clean up any empty fields
-          const data = entry.get('data').toJS();
-          Object.keys(data).forEach(key => {
-            if (data[key] === '') {
-              entry.get('data').delete(key);
-            }
-          });
           return entry;
         },
       });
 
+      // Handle successful publish
       CMS.registerEventListener({
         name: 'postPublish',
-        handler: ({ entry }) => {
-          const slug = entry.get('slug');
-          const collection = entry.get('collection');
-          
-          // Force a hard reload after a delay to ensure GitHub has processed the commit
-          setTimeout(() => {
-            if (collection === 'post') {
-              window.location.replace(`/post/${slug}`);
-            } else {
-              window.location.replace('/');
-            }
-          }, 3000);
+        handler: () => {
+          // Force a rebuild by redirecting to homepage
+          window.location.replace('/');
         },
       });
 
-      // Add listener for identity-widget events
+      // Handle successful unpublish
+      CMS.registerEventListener({
+        name: 'postUnpublish',
+        handler: () => {
+          window.location.replace('/');
+        },
+      });
+
+      // Handle successful delete
+      CMS.registerEventListener({
+        name: 'postDelete',
+        handler: () => {
+          window.location.replace('/');
+        },
+      });
+
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("logout", () => {
           document.location.href = "/";

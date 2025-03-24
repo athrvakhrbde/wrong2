@@ -1,0 +1,12 @@
+{{ define "main" }}
+
+<section class="section narrow">
+    <section class="articles-list-container">
+        {{ $paginator := .Paginate (where site.RegularPages "Type" "post") }}
+        {{ range $paginator.Pages }}
+            {{ partial "article/article-list.html" . }}
+        {{ end }}
+    </section>
+</section>
+
+{{ end }} 
