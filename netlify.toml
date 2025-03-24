@@ -1,10 +1,9 @@
 [build]
 publish = "public"
 command = """
-rm -rf themes/hugo-theme-novela
-git clone https://github.com/forestryio/hugo-theme-novela.git themes/hugo-theme-novela
+git submodule update --init --recursive
 npm install
-npm run build
+hugo --gc --minify
 """
 
 [build.environment]
