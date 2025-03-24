@@ -9,21 +9,17 @@ paginate: 6
 outputs:
   home: ["HTML", "RSS", "JSON"]
 
+social:
+  twitter: "https://twitter.com/athrvakhrbde"
+
+taxonomies:
+  author: authors
+
 params:
   description: "Exploring unconventional perspectives on human relationships"
   hero:
     heading: "Atharva might be wrong, but..."
     maxWidth: 652
-
-social:
-  twitter: "https://twitter.com/athrvakhrbde"
-  github: "https://github.com/athrvakhrbde"
-  linkedin: "https://www.linkedin.com/company/forestry.io"
-  instagram: "https://www.instagram.com/forestryio/"
-  dribbble: "https://dribbble.com/forestryio"
-
-taxonomies:
-  author: authors
 
 markup:
   goldmark:

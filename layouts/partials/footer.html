@@ -1,0 +1,28 @@
+{{ if .IsHome }}
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+{{ end }}
+<footer>
+  <div class="footer-gradient"></div>
+  <div class="footer-container">
+    <div class="footer-text">
+      © {{ now.Format "2006"}} Wrong
+    </div>
+    <div class="social-links">
+      {{ with .Site.Social.twitter }}
+      <a href="{{ . }}" target="_blank" rel="noopener">
+        {{ partial "icons/social/twitter.html" . }}
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</footer> 
