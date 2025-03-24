@@ -1,6 +1,8 @@
 ---
 title: Behenchaara
-date: 2025-03-24T14:05:00.000Z
+date: 2025-03-24T14:16:00.000Z
+hero: /images/uploads/black-white-arms-meme-template-full-a937e5db.webp
+excerpt: "-"
 authors:
   - Not Atharva
 ---
@@ -23,4 +25,4 @@ Fighting is not a good thing, bad, very bad. But when you need your homie, he'll
 
 Due to Atharva's limited interaction with female human species, he cannot & doesn't want to comment more. He might be wrong, but this is what he has to say.
 
-![](/images/uploads/black-white-arms-meme-template-full-a937e5db.webp)
+![]()
