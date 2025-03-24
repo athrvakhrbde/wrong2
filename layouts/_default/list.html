@@ -1,0 +1,86 @@
+{{ define "main" }}
+<section class="section narrow">
+    <div class="articles-grid-container">
+        {{ $pages := where .Site.RegularPages "Type" "post" }}
+        {{ range $pages }}
+            <article class="article-card">
+                {{ if .Params.hero }}
+                <div class="article-image">
+                    <img src="{{ .Params.hero }}" alt="{{ .Title }}">
+                </div>
+                {{ end }}
+                <div class="article-content">
+                    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                    <div class="article-metadata">
+                        {{ .Date.Format "January 2, 2006" }}
+                        {{ with .Params.authors }}
+                        · {{ delimit . ", " }}
+                        {{ end }}
+                    </div>
+                    <div class="article-excerpt">
+                        {{ .Summary }}
+                    </div>
+                </div>
+            </article>
+        {{ end }}
+    </div>
+</section>
+
+<style>
+.section.narrow {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.articles-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 32px;
+    margin: 60px 0;
+}
+
+.article-card {
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-2px);
+}
+
+.article-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 20px;
+}
+
+.article-content h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.article-content h2 a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.article-metadata {
+    font-size: 14px;
+    color: var(--grey);
+    margin-bottom: 10px;
+}
+
+.article-excerpt {
+    color: var(--secondary);
+    font-size: 16px;
+    line-height: 1.6;
+}
+</style>
+{{ end }} 
