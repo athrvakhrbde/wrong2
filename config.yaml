@@ -1,14 +1,20 @@
 baseURL: "https://wrong.athrvakhrbde.com"
 languageCode: "en-us"
 title: "Wrong"
+theme: "hugo-theme-novela"
 
-# Basic build settings
-disableKinds: ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
+paginate: 6
 
-# Enable Git info for last modified date
-enableGitInfo: true
+social:
+  twitter: "https://twitter.com/forestryio"
+  github: "https://github.com/forestryio/novela-hugo-starter"
+  linkedin: "https://www.linkedin.com/company/forestry.io"
+  instagram: "https://www.instagram.com/forestryio/"
+  dribbble: "https://dribbble.com/forestryio"
 
-# Enable raw HTML in markdown
+taxonomies:
+  author: authors
+
 markup:
   goldmark:
     renderer:

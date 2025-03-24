@@ -1,15 +1,6 @@
 {{ define "main" }}
-<div class="main-content">
-    {{ if .Params.hero }}
-    <div class="hero">
-        <img src="{{ .Params.hero }}" alt="{{ .Title }}">
-    </div>
-    {{ end }}
-    
-    <h1>{{ .Title }}</h1>
-    
-    <div class="content">
-        {{ .Content }}
-    </div>
-</div>
+
+{{ partial "articles/hero.html" . }}
+{{ partial "articles/articles.html" . }}
+
 {{ end }}
