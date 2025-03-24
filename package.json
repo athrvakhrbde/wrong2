@@ -10,7 +10,8 @@
     "autoprefixer": "^10.4.19",
     "node-fetch": "^3.3.2",
     "postcss": "^8.4.38",
-    "postcss-cli": "^11.0.0"
+    "postcss-cli": "^11.0.0",
+    "react": "^17.0.2"
   },
   "hugo": {
     "version": "0.121.0",
