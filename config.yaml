@@ -4,6 +4,10 @@ title: "Wrong"
 theme: "hugo-theme-novela"
 
 params:
+  description: "Welcome to Wrong"
+  hero:
+    heading: "Welcome to Wrong"
+    maxWidth: 652
   social:
     twitter: "https://twitter.com/forestryio"
     github: "https://github.com/forestryio/novela-hugo-starter"

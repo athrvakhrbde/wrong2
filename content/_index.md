@@ -1,8 +1,5 @@
 ---
-title: Welcome
-hero:
-  heading: "Welcome to Wrong"
-  maxWidthPX: 652
+title: Welcome to Wrong
 ---
 
-Welcome to my site. This is the main content area.
+Welcome to Wrong. This is where your journey begins.
