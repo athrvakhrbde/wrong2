@@ -42,16 +42,30 @@
       CMS.registerEventListener({
         name: 'postPublish',
         handler: ({ entry }) => {
-          // Redirect to the published post or homepage
-          const slug = entry.get('slug');
-          const collection = entry.get('collection');
-          if (collection === 'post') {
-            window.location.href = `/post/${slug}`;
-          } else {
-            window.location.href = '/';
-          }
+          // Force Netlify to rebuild the site
+          fetch('/.netlify/functions/trigger-deploy', {
+            method: 'POST',
+          }).then(() => {
+            // Wait for rebuild to complete (approximately)
+            setTimeout(() => {
+              const slug = entry.get('slug');
+              const collection = entry.get('collection');
+              if (collection === 'post') {
+                window.location.href = `/post/${slug}`;
+              } else {
+                window.location.href = '/';
+              }
+            }, 10000); // Wait 10 seconds for rebuild
+          });
         },
       });
+
+      // Add listener for identity-widget events
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("logout", () => {
+          document.location.href = "/";
+        });
+      }
     </script>
 
     <style>
