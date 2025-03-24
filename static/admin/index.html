@@ -29,27 +29,27 @@
       CMS.registerEventListener({
         name: 'publish',
         handler: () => {
-          window.location.href = 'https://correct.athrvakhrbde.com';
+          window.location.href = 'https://wrong.athrvakhrbde.com';
         },
       });
 
       CMS.registerEventListener({
         name: 'unpublish',
         handler: () => {
-          window.location.href = 'https://correct.athrvakhrbde.com';
+          window.location.href = 'https://wrong.athrvakhrbde.com';
         },
       });
 
       CMS.registerEventListener({
         name: 'delete',
         handler: () => {
-          window.location.href = 'https://correct.athrvakhrbde.com';
+          window.location.href = 'https://wrong.athrvakhrbde.com';
         },
       });
 
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("logout", () => {
-          window.location.href = 'https://correct.athrvakhrbde.com';
+          window.location.href = 'https://wrong.athrvakhrbde.com';
         });
       }
     </script>
