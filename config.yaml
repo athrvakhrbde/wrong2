@@ -4,14 +4,11 @@ title: "Wrong"
 theme: "hugo-theme-novela"
 pygmentsstyle: 'monokai'
 
-paginate: 6
+pagination:
+  pagerSize: 6
 
 outputs:
   home: ["HTML", "RSS", "JSON"]
-
-social:
-  twitter: "https://twitter.com/athrvakhrbde"
-  github: "https://github.com/athrvakhrbde"
 
 taxonomies:
   author: authors
@@ -21,14 +18,11 @@ params:
   hero:
     heading: "Atharva might be wrong, but..."
     maxWidth: 652
+  social:
+    twitter: "https://twitter.com/athrvakhrbde"
+    github: "https://github.com/athrvakhrbde"
 
 markup:
   goldmark:
     renderer:
       unsafe: true
-
-  social:
-    - name: twitter
-      url: "https://twitter.com/athrvakhrbde"
-    - name: github
-      url: "https://github.com/athrvakhrbde"

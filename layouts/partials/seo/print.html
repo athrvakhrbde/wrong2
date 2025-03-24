@@ -1,0 +1,123 @@
+{{/* Simplified SEO template that fixes the issue with hero parameter */}}
+
+{{/* Adding the seo map to scratch which will receive SEO key/value pairs. */}}
+{{- $.Scratch.Set "seo" dict -}}
+
+{{/* Dates */}}
+{{- if not .PublishDate.IsZero -}}
+  {{- $.Scratch.SetInMap "seo" "published_time" (.PublishDate.Format "2006-01-02T15:04:05-07:00") -}}
+{{- else if not .Date.IsZero -}}
+  {{- $.Scratch.SetInMap "seo" "published_time" (.Date.Format "2006-01-02T15:04:05-07:00") -}}
+{{- end -}}
+{{- if not .Lastmod.IsZero -}}
+  {{- $.Scratch.SetInMap "seo" "updated_time" (.Lastmod.Format "2006-01-02T15:04:05-07:00") -}}
+{{- end -}}
+
+{{/* Description */}}
+{{ $description := "" }}
+{{- if .Params.seo.description -}}
+  {{- $description = .Params.seo.description -}}
+{{- else if .Params.description -}}
+  {{- $description = .Params.description | plainify -}}
+{{- else if .Summary -}}
+  {{- $description = .Summary -}}
+{{- else -}}
+  {{ $description = .Site.Params.description }}
+{{- end -}}
+
+{{- $.Scratch.SetInMap "seo" "description" $description -}}
+
+{{/* Title */}}
+{{- if not .IsHome -}}
+  {{- $.Scratch.SetInMap "seo" "title" (printf "%s | %s" .Title .Site.Title) -}}
+{{- else -}}
+  {{- $.Scratch.SetInMap "seo" "title" .Site.Title -}}
+{{- end -}}
+
+{{/* Site Name */}}
+{{- $.Scratch.SetInMap "seo" "site_name" .Site.Title -}}
+
+{{/* Twitter */}}
+{{- $.Scratch.SetInMap "seo" "twitter_card" "summary_large_image" -}}
+
+{{/* We check the site config sports a Social.twitter and use as handle */}}
+{{- with .Site.Params.social.twitter -}}
+  {{- $.Scratch.SetInMap "seo" "twitter_handle" (printf "@%s" (replace . "https://twitter.com/" "")) -}}
+{{- end -}}
+
+{{/* Image */}}
+{{- $img := "" -}}
+{{- with .Site.Params.seo.default_image -}}
+  {{- $img = . -}}
+{{- end -}}
+
+{{- with .Params.seo.image -}}
+  {{- $img = . -}}
+{{- else -}}
+  {{/* Handle different image parameter formats */}}
+  {{- if .Params.hero -}}
+    {{- if reflect.IsMap .Params.hero -}}
+      {{/* If .Params.hero is a map with specific keys */}}
+      {{- with .Params.hero.image -}}
+        {{- $img = . -}}
+      {{- end -}}
+    {{- else -}}
+      {{/* If .Params.hero is a string */}}
+      {{- $img = .Params.hero -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with .Params.avatar -}}
+    {{- $img = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $img -}}
+  {{- $.Scratch.SetInMap "seo" "image" $img -}}
+{{- end -}}
+
+{{/* Type */}}
+{{- if .IsHome -}}
+  {{- $.Scratch.SetInMap "seo" "type" "website" -}}
+{{- else if eq .Section "post" -}}
+  {{- $.Scratch.SetInMap "seo" "type" "article" -}}
+{{- else -}}
+  {{- $.Scratch.SetInMap "seo" "type" "website" -}}
+{{- end -}}
+
+{{/* Page-specific */}}
+{{ with .Params.seo }}
+  {{ range $k, $v := . }}
+    {{ if ne $k "image" }}
+      {{- $.Scratch.SetInMap "seo" $k $v -}}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Get all the SEO values from scratch */}}
+{{ $seo := $.Scratch.Get "seo" }}
+
+{{/* Printing the tags */}}
+<title>{{ if isset $seo "title" }}{{ index $seo "title" }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ if isset $seo "description" }}{{ index $seo "description" }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+{{ if isset $seo "image" }}
+<meta property="og:image" content="{{ index $seo "image" }}">
+{{ end }}
+<meta property="og:title" content="{{ if isset $seo "title" }}{{ index $seo "title" }}{{ else }}{{ .Site.Title }}{{ end }}">
+<meta property="og:description" content="{{ if isset $seo "description" }}{{ index $seo "description" }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:site_name" content="{{ if isset $seo "site_name" }}{{ index $seo "site_name" }}{{ else }}{{ .Site.Title }}{{ end }}">
+<meta property="og:type" content="{{ if isset $seo "type" }}{{ index $seo "type" }}{{ else }}website{{ end }}">
+{{ if isset $seo "published_time" }}
+<meta property="article:published_time" content="{{ index $seo "published_time" }}">
+{{ end }}
+{{ if isset $seo "updated_time" }}
+<meta property="article:modified_time" content="{{ index $seo "updated_time" }}">
+{{ end }}
+<meta name="twitter:title" content="{{ if isset $seo "title" }}{{ index $seo "title" }}{{ else }}{{ .Site.Title }}{{ end }}">
+<meta name="twitter:description" content="{{ if isset $seo "description" }}{{ index $seo "description" }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+{{ if isset $seo "image" }}
+<meta name="twitter:image" content="{{ index $seo "image" }}">
+{{ end }}
+<meta name="twitter:card" content="{{ if isset $seo "twitter_card" }}{{ index $seo "twitter_card" }}{{ else }}summary_large_image{{ end }}">
+{{ if isset $seo "twitter_handle" }}
+<meta name="twitter:site" content="{{ index $seo "twitter_handle" }}">
+{{ end }} 
