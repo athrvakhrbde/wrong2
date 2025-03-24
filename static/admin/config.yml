@@ -26,26 +26,11 @@ collections:
     folder: "content/post"
     create: true
     slug: "{{slug}}"
-    preview_path: "post/{{slug}}"
+    preview_path: "/"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Authors", name: "authors", widget: "list", default: ["Wrong Team"]}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list", default: []} # New field added
-
-  - name: "pages"
-    label: "Pages"
-    files:
-      - file: "content/_index.md"
-        label: "Home"
-        name: "home"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Hero Section", name: "hero", widget: "object", fields: [
-              {label: "Heading", name: "heading", widget: "string"},
-              {label: "Max Width", name: "maxWidth", widget: "number", default: 652},
-              {label: "Background Image", name: "backgroundImage", widget: "image"}
-            ]}
-          - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", default: []}

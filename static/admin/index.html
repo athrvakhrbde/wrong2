@@ -24,31 +24,31 @@
       // Register preview styles
       CMS.registerPreviewStyle("/css/style.css");
 
-      // Handle entry actions
+      // Handle entry actions - all route to homepage
       CMS.registerEventListener({
         name: 'publish',
         handler: () => {
-          window.location.href = 'https://wrong.athrvakhrbde.com';
+          window.location.href = '/';
         },
       });
 
       CMS.registerEventListener({
         name: 'unpublish',
         handler: () => {
-          window.location.href = 'https://wrong.athrvakhrbde.com';
+          window.location.href = '/';
         },
       });
 
       CMS.registerEventListener({
         name: 'delete',
         handler: () => {
-          window.location.href = 'https://wrong.athrvakhrbde.com';
+          window.location.href = '/';
         },
       });
 
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("logout", () => {
-          window.location.href = 'https://wrong.athrvakhrbde.com';
+          window.location.href = '/';
         });
       }
     </script>
