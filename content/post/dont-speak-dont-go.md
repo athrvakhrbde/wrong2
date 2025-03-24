@@ -1,6 +1,6 @@
 ---
 title: Don't Speak, Don't Go
-date: 2025-03-24T23:16:00.000Z
+date: 2025-03-24T23:20:00.000Z
 hero: /images/tree-3080406_1920-1080x675.jpg
 authors:
   - Not Atharva
