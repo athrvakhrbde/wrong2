@@ -57,7 +57,7 @@ status = 404
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "interest-cohort=()"  # Update this line
+    Permissions-Policy = "geolocation=(self), microphone=(), camera=()"  # Update this line
 
 [build.processing]
   skip_processing = false
