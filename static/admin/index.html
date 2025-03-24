@@ -23,37 +23,47 @@
 
       // Register preview styles
       CMS.registerPreviewStyle("/css/style.css");
-      
-      // Handle successful publish
+
+      // Handle workflow status changes
       CMS.registerEventListener({
-        name: 'preSave',
-        handler: ({ entry }) => {
-          return entry;
+        name: 'workflowStatus',
+        handler: ({ status }) => {
+          // When entry is unpublished or deleted, wait briefly then reload
+          if (status === 'unpublished' || status === 'deleted') {
+            setTimeout(() => {
+              window.location.href = '/';
+            }, 1500);
+          }
         },
       });
 
       // Handle successful publish
       CMS.registerEventListener({
-        name: 'postPublish',
+        name: 'afterPublish',
         handler: () => {
-          // Force a rebuild by redirecting to homepage
-          window.location.replace('/');
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 1500);
         },
       });
 
       // Handle successful unpublish
       CMS.registerEventListener({
-        name: 'postUnpublish',
+        name: 'unpublished',
         handler: () => {
-          window.location.replace('/');
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 1500);
         },
       });
 
       // Handle successful delete
       CMS.registerEventListener({
-        name: 'postDelete',
+        name: 'afterDelete',
         handler: () => {
-          window.location.replace('/');
+          setTimeout(() => {
+            window.location.href = '/';
+          }, 1500);
         },
       });
 
