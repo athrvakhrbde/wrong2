@@ -1,0 +1,11 @@
+{{ with .NextInSection }}
+<div class="footer-next-heading">Next article</div>
+<div class="footer-next-article">
+    <a href="{{ .RelPermalink }}" class="footer-next-link">{{ .Title }}</a>
+    {{ with .Params.hero }}
+    <div class="footer-next-image-container">
+        <img src="{{ . }}" />
+    </div>
+    {{ end }}
+</div>
+{{ end }} 

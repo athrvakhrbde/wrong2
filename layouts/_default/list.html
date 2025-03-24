@@ -1,25 +1,12 @@
 {{ define "main" }}
-<section class="section nartrow">
-  <section class="articles-list-container">
-    {{ $pages := where .Site.RegularPages "Type" "post" }}
-    {{ range $pages }}
-      <article class="post-article">
-        <div class="article-header">
-          <h2 class="article-title">
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          </h2>
-          <div class="article-meta">
-            {{ .Date.Format "January 2, 2006" }}
-            {{ with .Params.authors }}
-              · {{ delimit . ", " }}
-            {{ end }}
-          </div>
-        </div>
-        <div class="article-excerpt">
-          {{ .Summary }}
-        </div>
-      </article>
-    {{ end }}
-  </section>
+
+<section class="section narrow">
+    <section class="articles-list-container">
+        {{ $pages := where .Site.RegularPages "Type" "post" }}
+        {{ range $pages }}
+            {{ partial "article/article-list.html" . }}
+        {{ end }}
+    </section>
 </section>
+
 {{ end }} 
