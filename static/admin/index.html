@@ -28,14 +28,28 @@
       CMS.registerEventListener({
         name: 'preSave',
         handler: ({ entry }) => {
+          // Clean up any empty fields
+          const data = entry.get('data').toJS();
+          Object.keys(data).forEach(key => {
+            if (data[key] === '') {
+              entry.get('data').delete(key);
+            }
+          });
           return entry;
         },
       });
 
       CMS.registerEventListener({
         name: 'postPublish',
-        handler: () => {
-          window.location.href = '/';
+        handler: ({ entry }) => {
+          // Redirect to the published post or homepage
+          const slug = entry.get('slug');
+          const collection = entry.get('collection');
+          if (collection === 'post') {
+            window.location.href = `/post/${slug}`;
+          } else {
+            window.location.href = '/';
+          }
         },
       });
     </script>
@@ -45,29 +59,38 @@
       a[href^="https://decapcms.org"] {
         display: none !important;
       }
+      
       /* Improve admin UI */
       .css-1gj57a0-SidebarContainer-card {
         width: 250px !important;
       }
+      
       .css-v758ki-AppMainContainer {
         margin-left: 250px !important;
         max-width: calc(100% - 250px) !important;
       }
+      
       .css-12b66la-AppHeaderContent {
         padding: 20px !important;
+        justify-content: space-between !important;
       }
+      
       .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton {
         margin: 0 5px !important;
       }
-      .css-12b66la-AppHeaderContent {
-        justify-content: space-between !important;
-      }
+      
       /* Improve content layout */
       .css-1f7nhiq-CollectionMain {
         padding: 20px !important;
       }
+      
       .css-1hvrgvd-CollectionTopContainer-card-cardTop {
         margin-bottom: 20px !important;
+      }
+      
+      /* Preview improvements */
+      .frame-content {
+        background: var(--color-background);
       }
     </style>
   </body>

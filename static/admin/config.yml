@@ -23,11 +23,11 @@ collections:
     folder: "content/post"
     create: true
     slug: "{{slug}}"
+    preview_path: "post/{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Hero Image", name: "hero", widget: "image"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
       - {label: "Authors", name: "authors", widget: "list", default: ["Wrong Team"]}
       - {label: "Body", name: "body", widget: "markdown"}
 
@@ -52,11 +52,9 @@ collections:
         label: "Home"
         name: "home"
         fields:
-          - {label: "Title", name: "title", widget: "string", default: "Atharva might be wrong, but..."}
-          - label: "Hero"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Heading", name: "heading", widget: "string", default: "Atharva might be wrong, but..."}
-              - {label: "Max Width", name: "maxWidth", widget: "hidden", default: 652}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Hero Section", name: "hero", widget: "object", fields: [
+              {label: "Heading", name: "heading", widget: "string"},
+              {label: "Max Width", name: "maxWidth", widget: "number", default: 652}
+            ]}
           - {label: "Body", name: "body", widget: "markdown"} 
