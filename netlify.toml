@@ -9,6 +9,11 @@ GO_VERSION = "1.21.1"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 NODE_VERSION = "20"
+GIT_LFS_SKIP_SMUDGE = "1"  # Add this line if using Git LFS
+
+# Add the following lines if using SSH keys for authentication
+GIT_SSH_KEY = "your-ssh-key"
+GIT_SSH_KEY_PATH = "/path/to/your/ssh-key"
 
 [[redirects]]
 from = "/*"
