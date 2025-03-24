@@ -1,6 +1,8 @@
 ---
 title: Welcome
-hero: /images/hero-1.jpg
+hero:
+  heading: "Welcome to Wrong"
+  maxWidthPX: 652
 ---
 
 Welcome to my site. This is the main content area.

@@ -3,15 +3,13 @@ languageCode: "en-us"
 title: "Wrong"
 theme: "hugo-theme-novela"
 
-pagination:
-  pagerSize: 6
-
-social:
-  twitter: "https://twitter.com/forestryio"
-  github: "https://github.com/forestryio/novela-hugo-starter"
-  linkedin: "https://www.linkedin.com/company/forestry.io"
-  instagram: "https://www.instagram.com/forestryio/"
-  dribbble: "https://dribbble.com/forestryio"
+params:
+  social:
+    twitter: "https://twitter.com/forestryio"
+    github: "https://github.com/forestryio/novela-hugo-starter"
+    linkedin: "https://www.linkedin.com/company/forestry.io"
+    instagram: "https://www.instagram.com/forestryio/"
+    dribbble: "https://dribbble.com/forestryio"
 
 taxonomies:
   author: authors
