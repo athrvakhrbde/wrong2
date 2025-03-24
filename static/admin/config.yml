@@ -1,10 +1,16 @@
 backend:
   name: git-gateway
   branch: main
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: '[skip ci] Upload "{{path}}"'
+    deleteMedia: '[skip ci] Delete "{{path}}"'
 
 publish_mode: editorial_workflow
-media_folder: static/images/uploads
-public_folder: /images/uploads
+media_folder: static/images
+public_folder: /images
 
 # Remove Decap CMS branding
 site_url: https://wrong.athrvakhrbde.com
@@ -12,36 +18,32 @@ display_url: https://wrong.athrvakhrbde.com
 logo_url: /images/logo.png
 
 collections:
-  - name: "posts"
+  - name: "post"
     label: "Posts"
     folder: "content/post"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "hero", widget: "image", required: false}
+      - {label: "Hero Image", name: "hero", widget: "image"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Authors", name: "authors", widget: "list", default: ["Wrong Team"]}
       - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Authors"
-        name: "authors"
-        widget: "list"
-        default: ["Wrong Team"]
 
   - name: "authors"
     label: "Authors"
     folder: "content/authors"
     create: true
-    slug: "{{slug}}"
     fields:
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Bio", name: "bio", widget: "text"}
+      - {label: "Avatar", name: "avatar", widget: "image", required: false}
       - {label: "Featured", name: "featured", widget: "boolean", default: false}
-      - label: "Social"
-        name: "social"
-        widget: "list"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "URL", name: "url", widget: "string"}
+      - {label: "Social", name: "social", widget: "list", fields: [
+          {label: "Title", name: "title", widget: "string"},
+          {label: "URL", name: "url", widget: "string"}
+        ]}
 
   - name: "pages"
     label: "Pages"

@@ -20,6 +20,24 @@
           }
         });
       }
+
+      // Register preview styles
+      CMS.registerPreviewStyle("/css/style.css");
+      
+      // Handle successful publish
+      CMS.registerEventListener({
+        name: 'preSave',
+        handler: ({ entry }) => {
+          return entry;
+        },
+      });
+
+      CMS.registerEventListener({
+        name: 'postPublish',
+        handler: () => {
+          window.location.href = '/';
+        },
+      });
     </script>
 
     <style>
