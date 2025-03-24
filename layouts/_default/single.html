@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .Site.Title }}</title>
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
   <link rel="stylesheet" href="/css/fix.css">
   <style>
     * {
@@ -20,7 +20,7 @@
     }
     
     .container {
-      max-width: 1140px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -34,57 +34,62 @@
       font-size: 32px;
     }
     
-    .hero {
-      text-align: center;
-      padding: 60px 0;
-    }
-    
-    .hero h2 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    
-    .posts {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
-    }
-    
-    .post {
-      border: 1px solid #eee;
-      border-radius: 8px;
-      padding: 20px;
-      transition: all 0.3s ease;
-    }
-    
-    .post:hover {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .post h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-    
-    .post a {
+    header a {
       color: #333;
       text-decoration: none;
     }
     
-    .post a:hover {
-      text-decoration: underline;
+    .post-header {
+      margin: 60px 0 40px;
     }
     
-    .post-date {
-      font-size: 14px;
+    .post-title {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    
+    .post-meta {
+      font-size: 16px;
       color: #777;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
     }
     
-    .read-more {
+    .post-content {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    
+    .post-content p {
+      margin-bottom: 1.5em;
+    }
+    
+    .post-content h2 {
+      font-size: 28px;
+      margin: 1.5em 0 0.5em;
+    }
+    
+    .post-content h3 {
+      font-size: 24px;
+      margin: 1.5em 0 0.5em;
+    }
+    
+    .post-content ul, .post-content ol {
+      margin-bottom: 1.5em;
+      padding-left: 1.5em;
+    }
+    
+    .post-navigation {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .post-navigation a {
       display: inline-block;
-      padding: 8px 16px;
+      padding: 10px 20px;
       background-color: #333;
       color: #fff;
       text-decoration: none;
@@ -93,7 +98,7 @@
       transition: background-color 0.3s ease;
     }
     
-    .read-more:hover {
+    .post-navigation a:hover {
       background-color: #555;
     }
     
@@ -115,26 +120,23 @@
 <body>
   <div class="container">
     <header>
-      <h1>{{ .Site.Title }}</h1>
+      <h1><a href="/">{{ .Site.Title }}</a></h1>
     </header>
     
-    <section class="hero">
-      <h2>{{ .Site.Params.hero.heading }}</h2>
-    </section>
-    
-    <section class="posts">
-      {{ $pages := where .Site.RegularPages "Type" "post" }}
-      {{ range first 10 $pages }}
-        <article class="post">
-          <a href="{{ .Permalink }}">
-            <h3>{{ .Title }}</h3>
-          </a>
-          <div class="post-date">{{ .Date.Format "January 2, 2006" }}</div>
-          <div class="post-excerpt">{{ .Summary }}</div>
-          <a href="{{ .Permalink }}" class="read-more">Read More</a>
-        </article>
-      {{ end }}
-    </section>
+    <article class="post">
+      <div class="post-header">
+        <h1 class="post-title">{{ .Title }}</h1>
+        <div class="post-meta">{{ .Date.Format "January 2, 2006" }}</div>
+      </div>
+      
+      <div class="post-content">
+        {{ .Content }}
+      </div>
+      
+      <div class="post-navigation">
+        <a href="/" class="back-to-home">Back to Home</a>
+      </div>
+    </article>
     
     <footer>
       <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>

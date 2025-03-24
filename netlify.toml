@@ -53,7 +53,7 @@ GIT_SSH_KEY_PATH = "/path/to/your/ssh-key"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(self), microphone=(), camera=()"
+    Permissions-Policy = "geolocation=(self), microphone=(), camera=(), interest-cohort=()"
 
 [build.processing]
   skip_processing = false

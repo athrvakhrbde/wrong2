@@ -1,104 +1,127 @@
 /* Fix for content display issues */
+html, body {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #000 !important;
+  background-color: #fff !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+}
+
 .layout-styled {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .home-container {
-  display: block;
-  margin-top: 60px;
+  display: block !important;
+  margin-top: 60px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .hero {
-  text-align: center;
-  margin-bottom: 60px;
+  text-align: center !important;
+  margin-bottom: 60px !important;
+  display: block !important;
 }
 
 .hero h1 {
-  font-size: 42px;
-  line-height: 1.2;
-  margin: 0;
+  font-size: 42px !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  color: #000 !important;
 }
 
 .articles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-  margin-bottom: 60px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  gap: 30px !important;
+  margin-bottom: 60px !important;
 }
 
 .article-item {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 20px;
-  transition: box-shadow 0.3s ease;
+  border: 1px solid #eee !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
+  transition: box-shadow 0.3s ease !important;
+  display: block !important;
+  background-color: #fff !important;
 }
 
 .article-item:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
 }
 
 .article-item h2 {
-  font-size: 24px;
-  margin-top: 0;
-  margin-bottom: 15px;
+  font-size: 24px !important;
+  margin-top: 0 !important;
+  margin-bottom: 15px !important;
+  color: #000 !important;
+}
+
+.article-item a {
+  color: #000 !important;
+  text-decoration: none !important;
 }
 
 .article-excerpt {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 15px;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  margin-bottom: 15px !important;
+  color: #333 !important;
 }
 
 .article-meta {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 15px;
+  font-size: 14px !important;
+  color: #777 !important;
+  margin-bottom: 15px !important;
 }
 
 .read-more {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #000;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  display: inline-block !important;
+  padding: 8px 16px !important;
+  background-color: #000 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  transition: background-color 0.3s ease !important;
 }
 
 .read-more:hover {
-  background-color: #333;
+  background-color: #333 !important;
 }
 
 /* Footer Styles */
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 40px 0;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin: 40px 0 !important;
+}
+
+.footer-text {
+  color: #333 !important;
 }
 
 .social-icon-container {
-  display: flex;
-  gap: 15px;
+  display: flex !important;
+  gap: 15px !important;
 }
 
 @media (max-width: 768px) {
   .articles-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
   
   .footer-container {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column !important;
+    gap: 20px !important;
   }
-}
-
-/* Fix for text color */
-body {
-  color: #000;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 } 

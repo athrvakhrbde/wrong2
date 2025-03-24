@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .Site.Title }}</title>
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
   <link rel="stylesheet" href="/css/fix.css">
   <style>
     * {
@@ -34,12 +34,17 @@
       font-size: 32px;
     }
     
-    .hero {
+    header a {
+      color: #333;
+      text-decoration: none;
+    }
+    
+    .page-header {
       text-align: center;
       padding: 60px 0;
     }
     
-    .hero h2 {
+    .page-title {
       font-size: 48px;
       margin-bottom: 20px;
     }
@@ -97,6 +102,28 @@
       background-color: #555;
     }
     
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    
+    .pagination a {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 0 5px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    
+    .pagination a:hover, .pagination .active {
+      background-color: #333;
+      color: #fff;
+    }
+    
     footer {
       border-top: 1px solid #eee;
       padding: 30px 0;
@@ -110,21 +137,26 @@
       gap: 15px;
       margin-top: 20px;
     }
+    
+    @media (max-width: 768px) {
+      .posts {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>{{ .Site.Title }}</h1>
+      <h1><a href="/">{{ .Site.Title }}</a></h1>
     </header>
     
-    <section class="hero">
-      <h2>{{ .Site.Params.hero.heading }}</h2>
-    </section>
+    <div class="page-header">
+      <h1 class="page-title">{{ .Title }}</h1>
+    </div>
     
     <section class="posts">
-      {{ $pages := where .Site.RegularPages "Type" "post" }}
-      {{ range first 10 $pages }}
+      {{ range .Paginator.Pages }}
         <article class="post">
           <a href="{{ .Permalink }}">
             <h3>{{ .Title }}</h3>
@@ -135,6 +167,24 @@
         </article>
       {{ end }}
     </section>
+    
+    {{ if gt .Paginator.TotalPages 1 }}
+      <div class="pagination">
+        {{ if .Paginator.HasPrev }}
+          <a href="{{ .Paginator.Prev.URL }}">&laquo; Previous</a>
+        {{ end }}
+        
+        {{ range .Paginator.Pagers }}
+          <a href="{{ .URL }}" {{ if eq . $.Paginator }}class="active"{{ end }}>
+            {{ .PageNumber }}
+          </a>
+        {{ end }}
+        
+        {{ if .Paginator.HasNext }}
+          <a href="{{ .Paginator.Next.URL }}">Next &raquo;</a>
+        {{ end }}
+      </div>
+    {{ end }}
     
     <footer>
       <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>

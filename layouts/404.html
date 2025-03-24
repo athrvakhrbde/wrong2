@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .Site.Title }}</title>
+  <title>404 - Page Not Found | {{ .Site.Title }}</title>
   <link rel="stylesheet" href="/css/fix.css">
   <style>
     * {
@@ -34,57 +34,24 @@
       font-size: 32px;
     }
     
-    .hero {
+    .error-content {
       text-align: center;
-      padding: 60px 0;
+      padding: 100px 0;
     }
     
-    .hero h2 {
-      font-size: 48px;
+    .error-content h2 {
+      font-size: 72px;
       margin-bottom: 20px;
     }
     
-    .posts {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
+    .error-content p {
+      font-size: 20px;
+      margin-bottom: 30px;
     }
     
-    .post {
-      border: 1px solid #eee;
-      border-radius: 8px;
-      padding: 20px;
-      transition: all 0.3s ease;
-    }
-    
-    .post:hover {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .post h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-    
-    .post a {
-      color: #333;
-      text-decoration: none;
-    }
-    
-    .post a:hover {
-      text-decoration: underline;
-    }
-    
-    .post-date {
-      font-size: 14px;
-      color: #777;
-      margin-bottom: 15px;
-    }
-    
-    .read-more {
+    .home-link {
       display: inline-block;
-      padding: 8px 16px;
+      padding: 10px 20px;
       background-color: #333;
       color: #fff;
       text-decoration: none;
@@ -93,7 +60,7 @@
       transition: background-color 0.3s ease;
     }
     
-    .read-more:hover {
+    .home-link:hover {
       background-color: #555;
     }
     
@@ -118,22 +85,10 @@
       <h1>{{ .Site.Title }}</h1>
     </header>
     
-    <section class="hero">
-      <h2>{{ .Site.Params.hero.heading }}</h2>
-    </section>
-    
-    <section class="posts">
-      {{ $pages := where .Site.RegularPages "Type" "post" }}
-      {{ range first 10 $pages }}
-        <article class="post">
-          <a href="{{ .Permalink }}">
-            <h3>{{ .Title }}</h3>
-          </a>
-          <div class="post-date">{{ .Date.Format "January 2, 2006" }}</div>
-          <div class="post-excerpt">{{ .Summary }}</div>
-          <a href="{{ .Permalink }}" class="read-more">Read More</a>
-        </article>
-      {{ end }}
+    <section class="error-content">
+      <h2>404</h2>
+      <p>The page you're looking for doesn't exist or has been moved.</p>
+      <a href="/" class="home-link">Go Home</a>
     </section>
     
     <footer>
