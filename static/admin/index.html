@@ -28,27 +28,27 @@
       CMS.registerEventListener({
         name: 'publish',
         handler: () => {
-          window.location.href = 'https://wrong.athrvakhrbde.com';
+          window.location.href = 'https://correct.athrvakhrbde.com';
         },
       });
 
       CMS.registerEventListener({
         name: 'unpublish',
         handler: () => {
-          window.location.href = 'https://wrong.athrvakhrbde.com';
+          window.location.href = 'https://correct.athrvakhrbde.com';
         },
       });
 
       CMS.registerEventListener({
         name: 'delete',
         handler: () => {
-          window.location.href = 'https://wrong.athrvakhrbde.com';
+          window.location.href = 'https://correct.athrvakhrbde.com';
         },
       });
 
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("logout", () => {
-          window.location.href = 'https://wrong.athrvakhrbde.com';
+          window.location.href = 'https://correct.athrvakhrbde.com';
         });
       }
     </script>
@@ -91,7 +91,7 @@
       .frame-content {
         background: var(--color-background);
       }
-      /* New styles added */
+      
       .css-1hvrgvd-CollectionTopContainer-card-cardTop {
         border: 1px solid #ccc;
         padding: 10px;

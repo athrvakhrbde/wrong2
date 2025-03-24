@@ -1,2 +1,5 @@
 public
 .DS_Store
+
+# Ensure the following line does not exist or is commented out
+# themes/hugo-theme-novela/layouts/partials/icons/index.html
