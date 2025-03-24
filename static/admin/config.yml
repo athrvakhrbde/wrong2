@@ -14,19 +14,11 @@ publish_mode: editorial_workflow
 media_folder: static/images
 public_folder: /images
 
-# Remove Decap CMS branding
 site_url: https://wrong.athrvakhrbde.com
 display_url: https://wrong.athrvakhrbde.com
 logo_url: /images/logo.png
 
 local_backend: false
-
-# Add identity backend for authentication
-backend:
-  name: git-gateway
-  branch: main
-  identity_url: https://wrong.athrvakhrbde.com/.netlify/identity
-  gateway_url: https://wrong.athrvakhrbde.com/.netlify/git
 
 collections:
   - name: "post"
