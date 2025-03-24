@@ -33,6 +33,7 @@ collections:
       - {label: "Hero Image", name: "hero", widget: "image"}
       - {label: "Authors", name: "authors", widget: "list", default: ["Wrong Team"]}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", default: []} # New field added
 
   - name: "pages"
     label: "Pages"
