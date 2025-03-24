@@ -7,46 +7,13 @@ media_folder: static/images/uploads
 public_folder: /images/uploads
 
 collections:
-  - name: "content"
-    label: "Content"
-    folder: "content"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Content", name: "body", widget: "markdown" }
-      - { label: "Featured Image", name: "hero", widget: "image", required: false }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Show on Site", name: "draft", widget: "boolean", default: false }
-
-  - name: "authors"
-    label: "Authors"
-    folder: "content/authors"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Name", name: "title", widget: "string" }
-      - { label: "Bio", name: "bio", widget: "text" }
-      - { label: "Avatar", name: "avatar", widget: "image" }
-      - { label: "Featured", name: "featured", widget: "boolean", default: false }
-      - { label: "Social Links", name: "social", widget: "list", required: false }
-
-  - name: "pages"
-    label: "Pages"
+  - name: "main"
+    label: "Main Content"
     files:
-      - label: "About Page"
-        name: "about"
-        file: "content/about.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - { label: "Draft", name: "draft", widget: "boolean", default: false }
-      - label: "Home Page"
-        name: "home"
+      - label: "Site Content"
+        name: "content"
         file: "content/_index.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Hero Title", name: "hero", widget: "string", required: false }
-          - { label: "Hero Text", name: "excerpt", widget: "text", required: false }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - { label: "Draft", name: "draft", widget: "boolean", default: false } 
+          - { label: "Content", name: "body", widget: "markdown" }
+          - { label: "Featured Image", name: "hero", widget: "image", required: false } 
