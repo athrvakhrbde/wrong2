@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main  # Ensure this matches the default branch name of the repository
   repo: athrvakhrbde/wrong2
   site_domain: wrong.athrvakhrbde.com
   commit_messages:
