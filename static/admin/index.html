@@ -5,9 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Content Manager</title>
+    <!-- Include Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Decap CMS -->
+    <script src="https://unpkg.com/@staticcms/app@^3.4.5/dist/static-cms-app.js"></script>
+    <script>
+      window.CMS.init();
+
+      // Handle successful login
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+
+      // Handle successful publish
+      window.CMS.registerEventListener({
+        name: 'preSave',
+        handler: ({ entry }) => {
+          return entry;
+        },
+      });
+
+      window.CMS.registerEventListener({
+        name: 'postPublish',
+        handler: () => {
+          window.location.href = '/';
+        },
+      });
+    </script>
+
     <style>
-      /* Improve UI alignment */
+      /* Hide Decap CMS branding */
+      a[href^="https://decapcms.org"] {
+        display: none !important;
+      }
+      /* Improve admin UI */
       .css-1gj57a0-SidebarContainer-card {
         width: 250px !important;
       }
@@ -24,10 +63,6 @@
       .css-12b66la-AppHeaderContent {
         justify-content: space-between !important;
       }
-      /* Hide Decap CMS branding */
-      a[href^="https://decapcms.org"] {
-        display: none !important;
-      }
       /* Improve content layout */
       .css-1f7nhiq-CollectionMain {
         padding: 20px !important;
@@ -36,34 +71,5 @@
         margin-bottom: 20px !important;
       }
     </style>
-  </head>
-  <body>
-    <div id="nc-root"></div>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-
-      // Add this to handle redirection after successful publish
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("logout", () => {
-          document.location.href = "/";
-        });
-      }
-
-      CMS.registerEventListener({
-        name: 'postPublish',
-        handler: () => {
-          window.location.href = '/';
-        },
-      });
-    </script>
   </body>
 </html> 
