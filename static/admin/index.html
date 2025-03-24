@@ -42,21 +42,17 @@
       CMS.registerEventListener({
         name: 'postPublish',
         handler: ({ entry }) => {
-          // Force Netlify to rebuild the site
-          fetch('/.netlify/functions/trigger-deploy', {
-            method: 'POST',
-          }).then(() => {
-            // Wait for rebuild to complete (approximately)
-            setTimeout(() => {
-              const slug = entry.get('slug');
-              const collection = entry.get('collection');
-              if (collection === 'post') {
-                window.location.href = `/post/${slug}`;
-              } else {
-                window.location.href = '/';
-              }
-            }, 10000); // Wait 10 seconds for rebuild
-          });
+          const slug = entry.get('slug');
+          const collection = entry.get('collection');
+          
+          // Force a hard reload after a delay to ensure GitHub has processed the commit
+          setTimeout(() => {
+            if (collection === 'post') {
+              window.location.replace(`/post/${slug}`);
+            } else {
+              window.location.replace('/');
+            }
+          }, 3000);
         },
       });
 
