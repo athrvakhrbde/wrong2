@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "hugo --gc --minify"
+  command = "npm run build"
 
 [build.environment]
 HUGO_VERSION = "0.121.0"
@@ -9,6 +9,8 @@ HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 NODE_VERSION = "20"
 GIT_LFS_SKIP_SMUDGE = "1"  # Add this line if using Git LFS
+REPOSITORY_URL = "https://github.com/athrvakhrbde/wrong2"
+BRANCH = "main"
 
 # Add the following lines if using SSH keys for authentication
 GIT_SSH_KEY = "your-ssh-key"
@@ -62,6 +64,7 @@ status = 404
   HUGO_VERSION = "0.81.0"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
+  NODE_ENV = "production"
 
 [dev]
 framework = "hugo"
@@ -71,12 +74,13 @@ targetPort = 1313
   command = "git submodule update --init --recursive && hugo"
 
 [context.deploy-preview]
-  command = "hugo --gc --minify --buildDrafts --buildFuture"
+  command = "npm run build:preview"
   publish = "public"
 
 [context.branch-deploy]
-  command = "hugo --gc --minify"
+  command = "npm run build:branch"
   publish = "public"
 
 [context.next.environment]
   HUGO_ENABLEGITINFO = "true"
+  NODE_ENV = "development"

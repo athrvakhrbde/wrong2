@@ -4,7 +4,10 @@
   "description": "Wrong website",
   "scripts": {
     "dev": "hugo server -D",
-    "build": "hugo --gc --minify",
+    "build": "npm run build:production",
+    "build:production": "your-build-command",
+    "build:preview": "your-preview-build-command",
+    "build:branch": "your-branch-build-command",
     "start": "hugo server -D"
   },
   "dependencies": {

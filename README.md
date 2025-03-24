@@ -121,3 +121,31 @@ It uses [formspree.io](//formspree.io/) as proxy to send the actual email. Each 
 ```
 {{< subscribe email="your@email.com" >}}
 ```
+
+# wrong2
+
+## Setup
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/athrvakhrbde/wrong2.git
+   cd wrong2
+   ```
+
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+3. Build the project:
+   ```sh
+   npm run build
+   ```
+
+## Deploy to Netlify
+
+1. Ensure that the repository URL and branch are correctly specified in the `netlify.toml` file.
+2. Connect the repository to Netlify and configure the build settings.
+3. Deploy the project using the Netlify dashboard or CLI.
+
+For more information, refer to the [Netlify documentation](https://docs.netlify.com/).
