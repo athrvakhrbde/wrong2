@@ -5,6 +5,8 @@
 
 <body class="line-numbers">
 
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     {{ partial "header.html" . }}
 
     <main>
@@ -20,6 +22,18 @@
 
     {{ $script := resources.Get "js/prism.js" | minify }}
     <script src="{{ $script.RelPermalink }}"></script>
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 
 </body>
 

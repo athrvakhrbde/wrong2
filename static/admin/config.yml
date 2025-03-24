@@ -1,19 +1,52 @@
 backend:
-  name: github
-  repo: athrvakhrbde/wrong2
+  name: git-gateway
   branch: main
 
-media_folder: static/images/uploads
-public_folder: /images/uploads
+media_folder: "static/images" # Media files will be stored in the repo under static/images
+public_folder: "/images" # The src attribute for uploaded media will begin with /images
 
 collections:
-  - name: "main"
-    label: "Main Content"
+  - name: "pages"
+    label: "Pages"
     files:
-      - label: "Site Content"
-        name: "content"
+      - name: "home"
+        label: "Home Page"
         file: "content/_index.md"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Content", name: "body", widget: "markdown" }
-          - { label: "Featured Image", name: "hero", widget: "image", required: false } 
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Heading", name: "heading", widget: "string"}
+              - {label: "Max Width", name: "maxWidth", widget: "number", default: 652}
+
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/post"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "hero", widget: "image", required: false}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Authors", name: "authors", widget: "list"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "authors"
+    label: "Authors"
+    folder: "content/authors"
+    create: true
+    fields:
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Bio", name: "bio", widget: "text"}
+      - {label: "Avatar", name: "avatar", widget: "image"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - label: "Social"
+        name: "social"
+        widget: "list"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "URL", name: "url", widget: "string"} 
