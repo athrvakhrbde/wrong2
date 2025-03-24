@@ -5,80 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Content Manager</title>
-    <!-- Include the styles for the Netlify CMS UI -->
-    <link href="https://unpkg.com/@staticcms/app@^3.0.0/dist/main.css" rel="stylesheet" />
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
-    <script>
-      // Initialize Netlify Identity
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-
-      // Configure CMS
-      window.CMS_MANUAL_INIT = true;
-      
-      // Initialize the CMS
-      CMS.init({
-        config: {
-          backend: {
-            name: 'github',
-            repo: 'athrvakhrbde/wrong2',
-            branch: 'main',
-            base_url: 'https://api.netlify.com',
-            auth_endpoint: 'auth',
-            commit_messages: {
-              create: 'Create {{collection}} "{{slug}}"',
-              update: 'Update {{collection}} "{{slug}}"',
-              delete: 'Delete {{collection}} "{{slug}}"',
-              uploadMedia: 'Upload "{{path}}"',
-              deleteMedia: 'Delete "{{path}}"'
-            }
-          },
-          load_config_file: false,
-          media_folder: "static/images/uploads",
-          public_folder: "/images/uploads",
-          collections: [{
-            name: "posts",
-            label: "Posts",
-            folder: "content/post",
-            create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-            fields: [
-              { label: "Title", name: "title", widget: "string" },
-              { label: "Publish Date", name: "date", widget: "datetime" },
-              { label: "Featured Image", name: "thumbnail", widget: "image", required: false },
-              { label: "Body", name: "body", widget: "markdown" },
-              { label: "Tags", name: "tags", widget: "list", required: false },
-              { label: "Categories", name: "categories", widget: "list", required: false },
-              { label: "Draft", name: "draft", widget: "boolean", default: false }
-            ]
-          }]
-        }
-      });
-
-      // Preview styles
-      CMS.registerPreviewStyle("/css/style.css");
-      
-      // Register a preview template for posts
-      CMS.registerPreviewTemplate("posts", createClass({
-        render: function() {
-          const entry = this.props.entry;
-          return h("div", {},
-            h("h1", {}, entry.getIn(["data", "title"])),
-            h("div", {"className": "content"}, this.props.widgetFor("body"))
-          );
-        }
-      }));
-    </script>
+    <div id="nc-root"></div>
+    <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@^16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
   </body>
 </html> 
