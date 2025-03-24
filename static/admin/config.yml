@@ -1,21 +1,22 @@
 backend:
-  name: github
-  repo: athrvakhrbde/wrong2
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
 
 media_folder: static/images/uploads
 public_folder: /images/uploads
 
 local_backend: true
 
+publish_mode: editorial_workflow
+
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "content/blog"
+    folder: "content/post"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
@@ -23,4 +24,13 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Categories", name: "categories", widget: "list", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+
+  - name: "pages"
+    label: "Pages"
+    folder: "content"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false } 
