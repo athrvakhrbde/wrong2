@@ -5,24 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Content Manager</title>
+    <!-- Include Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Add loading message -->
+    <div id="nc-root"></div>
+    
+    <!-- Include the Decap CMS build -->
+    <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
+    
     <script>
+      // Wait for DOM to load
+      window.addEventListener('DOMContentLoaded', function() {
+        // Initialize Netlify Identity
         if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
+          window.netlifyIdentity.on("init", user => {
+            if (!user) {
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
+            }
+          });
         }
-
-        // Initialize the CMS object
-        CMS.init();
+      });
     </script>
   </body>
 </html> 

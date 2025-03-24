@@ -2,8 +2,10 @@ backend:
   name: github
   repo: athrvakhrbde/wrong2
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+
+site_url: https://wrong2.netlify.app
+display_url: https://wrong2.netlify.app
+logo_url: https://wrong2.netlify.app/images/favicon.svg
 
 media_folder: static/images/uploads
 public_folder: /images/uploads
