@@ -1,5 +1,5 @@
 ---
-title: Don't Speak, Don't Go
+title: Don't Speak, Don't G
 date: 2025-03-24T22:04:00.000Z
 hero: /images/tree-3080406_1920-1080x675.jpg
 authors:
