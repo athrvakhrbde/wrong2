@@ -1,9 +1,12 @@
-baseURL: "https://wrong.athrvakhrbde.com"
+baseURL: "https://wrong.athrvakhrbde.com/"
 languageCode: "en-us"
 title: "Wrong"
 theme: "hugo-theme-novela"
 
 paginate: 6
+
+outputs:
+  home: ["HTML", "RSS", "JSON"]
 
 params:
   description: "Exploring unconventional perspectives on human relationships"
