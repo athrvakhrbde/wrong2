@@ -12,3 +12,7 @@ social:
   youtube: "#"
 taxonomies:
   author: authors
+
+module:
+  imports:
+    - path: github.com/forestryio/hugo-theme-novela
