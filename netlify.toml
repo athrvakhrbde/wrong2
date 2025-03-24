@@ -60,18 +60,13 @@ status = 404
 [build.processing.images]
   compress = true
 
-[context.production.environment]
+[context.production]
+  command = "git submodule update --init --recursive && hugo"
+  [context.production.environment]
   HUGO_VERSION = "0.81.0"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
   NODE_ENV = "production"
-
-[dev]
-framework = "hugo"
-targetPort = 1313
-
-[context.production]
-  command = "git submodule update --init --recursive && hugo"
 
 [context.deploy-preview]
   command = "npm run build:preview"
@@ -84,3 +79,7 @@ targetPort = 1313
 [context.next.environment]
   HUGO_ENABLEGITINFO = "true"
   NODE_ENV = "development"
+
+[dev]
+framework = "hugo"
+targetPort = 1313
