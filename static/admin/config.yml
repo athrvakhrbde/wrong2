@@ -34,20 +34,6 @@ collections:
       - {label: "Authors", name: "authors", widget: "list", default: ["Wrong Team"]}
       - {label: "Body", name: "body", widget: "markdown"}
 
-  - name: "authors"
-    label: "Authors"
-    folder: "content/authors"
-    create: true
-    fields:
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Bio", name: "bio", widget: "text"}
-      - {label: "Avatar", name: "avatar", widget: "image", required: false}
-      - {label: "Featured", name: "featured", widget: "boolean", default: false}
-      - {label: "Social", name: "social", widget: "list", fields: [
-          {label: "Title", name: "title", widget: "string"},
-          {label: "URL", name: "url", widget: "string"}
-        ]}
-
   - name: "pages"
     label: "Pages"
     files:
