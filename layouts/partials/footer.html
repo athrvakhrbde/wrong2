@@ -16,7 +16,8 @@
 <style>
 .footer-container {
     padding: 30px 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--horizontalRule);
+    background: var(--background);
 }
 
 .footer-container .section {
@@ -29,23 +30,30 @@
 }
 
 .footer-text {
-    color: #000;
-}
-
-[data-theme="dark"] .footer-text {
-    color: #fff;
+    color: var(--primary);
 }
 
 .social-links a {
-    color: #000;
+    color: var(--primary);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
-[data-theme="dark"] .social-links a {
-    color: #fff;
+.social-links a:hover {
+    opacity: 1;
 }
 
 .social-links svg {
     width: 20px;
     height: 20px;
+}
+
+[data-theme="dark"] .footer-container {
+    border-top: 1px solid var(--horizontalRule);
+}
+
+[data-theme="dark"] .footer-text,
+[data-theme="dark"] .social-links a {
+    color: var(--primary);
 }
 </style> 

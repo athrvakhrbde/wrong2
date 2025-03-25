@@ -131,7 +131,9 @@ html, body {
 header .logo svg path,
 .logo svg path,
 nav .logo svg path,
-.nav-controls .logo svg path {
+.nav-controls .logo svg path,
+#logo-desktop .change-fill,
+#logo-mobile path {
     fill: #000 !important;
     color: #000 !important;
     stroke: none !important;
@@ -141,20 +143,26 @@ nav .logo svg path,
 [data-theme="dark"] header .logo svg path,
 [data-theme="dark"] .logo svg path,
 [data-theme="dark"] nav .logo svg path,
-[data-theme="dark"] .nav-controls .logo svg path {
+[data-theme="dark"] .nav-controls .logo svg path,
+[data-theme="dark"] #logo-desktop .change-fill,
+[data-theme="dark"] #logo-mobile path {
     fill: #fff !important;
     color: #fff !important;
     stroke: none !important;
 }
 
 /* Additional override for any SVG in the logo */
-.logo svg * {
+.logo svg *,
+#logo-desktop *,
+#logo-mobile * {
     fill: #000 !important;
     color: #000 !important;
     stroke: none !important;
 }
 
-[data-theme="dark"] .logo svg * {
+[data-theme="dark"] .logo svg *,
+[data-theme="dark"] #logo-desktop *,
+[data-theme="dark"] #logo-mobile * {
     fill: #fff !important;
     color: #fff !important;
     stroke: none !important;
