@@ -126,20 +126,36 @@ html, body {
   }
 }
 
-/* Logo color fixes */
-header .logo svg path {
+/* Logo color fixes - more specific and forceful */
+.nav-container .logo svg path,
+header .logo svg path,
+.logo svg path,
+nav .logo svg path,
+.nav-controls .logo svg path {
     fill: #000 !important;
+    color: #000 !important;
+    stroke: none !important;
 }
 
-[data-theme="dark"] header .logo svg path {
+[data-theme="dark"] .nav-container .logo svg path,
+[data-theme="dark"] header .logo svg path,
+[data-theme="dark"] .logo svg path,
+[data-theme="dark"] nav .logo svg path,
+[data-theme="dark"] .nav-controls .logo svg path {
     fill: #fff !important;
+    color: #fff !important;
+    stroke: none !important;
 }
 
-/* Override any other logo styles */
-.logo svg path {
+/* Additional override for any SVG in the logo */
+.logo svg * {
     fill: #000 !important;
+    color: #000 !important;
+    stroke: none !important;
 }
 
-[data-theme="dark"] .logo svg path {
+[data-theme="dark"] .logo svg * {
     fill: #fff !important;
+    color: #fff !important;
+    stroke: none !important;
 } 
