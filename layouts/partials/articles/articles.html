@@ -1,7 +1,6 @@
 {{ $posts := partialCached "func/GetArticles" . "articles" }}
 {{ if gt (len $posts) 0 }}
 <section class="section narrow">
-    <h3 class="articles-list-text">More articles from Atharva</h3>
     <div class="articles-list" id="articlesList">
         {{ $posts := first 2 $posts }}
         {{ range $posts }}
