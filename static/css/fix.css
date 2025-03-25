@@ -7,19 +7,39 @@ html, body {
 
 /* Center align hero section */
 .heading-container {
-  margin: 100px auto;
+  margin: 35px auto !important;
   text-align: center;
   width: 100% !important;
+  max-width: 800px !important;
 }
 
 .hero-heading {
-  text-align: center;
+  text-align: center !important;
   margin: 0 auto;
+  font-size: 48px !important;
 }
 
 .subheading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
   justify-content: center !important;
-  margin-bottom: 60px;
+  margin: 0 auto 60px;
+  max-width: 800px;
+}
+
+.bio-container {
+  text-align: center;
+}
+
+.bio-text {
+  font-size: 18px;
+  color: var(--secondary);
+  margin: 15px 0;
+}
+
+.bio-text::before {
+  content: none !important;
 }
 
 /* Logo color fixes - using theme variables */
@@ -31,23 +51,10 @@ nav .logo svg path,
 #logo-desktop .change-fill,
 #logo-mobile path {
     fill: var(--primary);
-    color: var(--primary);
-    stroke: none;
-    transition: fill 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad);
+    transition: fill 0.25s var(--ease-in-out-quad);
 }
 
-/* Remove the dark mode overrides since we're using CSS variables */
-/* Additional override for any SVG in the logo */
-.logo svg *,
-#logo-desktop *,
-#logo-mobile * {
-    fill: var(--primary);
-    color: var(--primary);
-    stroke: none;
-    transition: fill 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad);
-}
-
-/* Theme color overrides */
+/* Theme color variables */
 :root {
     --primary: #000;
     --secondary: #73737D;

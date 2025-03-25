@@ -13,6 +13,12 @@ function initTheme() {
 function setTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem(THEME_KEY, theme);
+  
+  // Update theme toggle button state
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.checked = theme === DARK_THEME;
+  }
 }
 
 // Toggle theme
@@ -23,4 +29,12 @@ function toggleTheme() {
 }
 
 // Initialize on load
-document.addEventListener('DOMContentLoaded', initTheme); 
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  
+  // Add event listener to theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('change', toggleTheme);
+  }
+}); 
