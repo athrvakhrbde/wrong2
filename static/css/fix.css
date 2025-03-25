@@ -51,7 +51,7 @@ html, body {
     transition: color 0.25s var(--ease-in-out-quad), background-color 0.25s var(--ease-in-out-quad);
 }
 
-/* Section styles from Novela theme */
+/* Section styles */
 .section {
     width: 100%;
     max-width: 1220px;
@@ -59,17 +59,16 @@ html, body {
     padding: 0 4rem;
 }
 
-@media screen and (max-width: 1070px) {
-    .section {
-        max-width: 850px;
-    }
+.section.narrow {
+    max-width: 944px;
 }
 
-@media screen and (max-width: 540px) {
-    .section {
-        max-width: 100%;
-        padding: 2rem;
-    }
+/* Article container */
+.article-container {
+    width: 100%;
+    max-width: 944px;
+    margin: 0 auto;
+    position: relative;
 }
 
 /* Article content styles */
@@ -77,10 +76,14 @@ html, body {
     padding: 60px 40px 0;
     margin: 0 auto;
     max-width: 680px;
+    width: 100%;
 }
 
 .post-content {
     padding-top: 60px;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
 }
 
 .article-content p {
@@ -117,6 +120,8 @@ html, body {
     margin: 100px auto 60px;
     max-width: 680px;
     text-align: center;
+    width: 100%;
+    padding: 0 20px;
 }
 
 .article-hero-heading {
@@ -139,9 +144,23 @@ html, body {
 }
 
 /* Responsive adjustments */
+@media screen and (max-width: 1070px) {
+    .section {
+        max-width: 850px;
+    }
+    
+    .section.narrow {
+        max-width: 800px;
+    }
+}
+
 @media screen and (max-width: 735px) {
-    .article-content {
+    .section {
         padding: 0 20px;
+    }
+    
+    .article-content {
+        padding: 40px 20px 0;
     }
     
     .article-hero-heading {
@@ -150,6 +169,43 @@ html, body {
     
     .article-content p {
         font-size: 18px;
+    }
+    
+    .article-hero-image {
+        margin-bottom: 40px;
+    }
+    
+    .article-header {
+        margin: 60px auto 40px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .section {
+        padding: 0 16px;
+    }
+    
+    .article-content {
+        padding: 30px 16px 0;
+    }
+    
+    .article-hero-heading {
+        font-size: 28px;
+    }
+    
+    .article-hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .article-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+    }
+    
+    .article-hero-image {
+        margin-bottom: 30px;
+        border-radius: 0;
     }
 }
 
