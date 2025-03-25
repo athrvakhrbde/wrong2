@@ -1,6 +1,6 @@
 baseURL: "https://wrong.athrvakhrbde.com"
 languageCode: "en-us"
-title: "Wrong"
+title: "Is Atharva Wrong?"
 theme: "hugo-theme-novela"
 pygmentsstyle: 'monokai'
 
@@ -11,13 +11,13 @@ outputs:
   home: ["HTML", "RSS", "JSON"]
 
 taxonomies:
-  author: authors
+  author: Not Atharva
 
 permalinks:
   post: /post/:title/
 
 params:
-  description: "Exploring unconventional perspectives on human relationships."
+  description: "Atharva might be wrong, but..."
   hero:
     heading: "Atharva might be wrong, but..."
     maxWidth: 652
