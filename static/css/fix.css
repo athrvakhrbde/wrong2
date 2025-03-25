@@ -44,70 +44,91 @@ html, body {
     transition: color 0.25s var(--ease-in-out-quad), background-color 0.25s var(--ease-in-out-quad);
 }
 
-/* Center align hero section */
-.heading-container {
-  margin: 35px auto !important;
-  text-align: center;
-  width: 100% !important;
-  max-width: 800px !important;
+/* Section styles from Novela theme */
+.section {
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 4rem;
 }
 
-.hero-heading {
-  text-align: center !important;
-  margin: 0 auto;
-  font-size: 48px !important;
+@media screen and (max-width: 1070px) {
+    .section {
+        max-width: 850px;
+    }
 }
 
-.subheading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center !important;
-  justify-content: center !important;
-  margin: 0 auto 60px;
-  max-width: 800px;
+@media screen and (max-width: 540px) {
+    .section {
+        max-width: 100%;
+        padding: 2rem;
+    }
 }
 
-/* Post page styles */
+/* Article header styles from Novela theme */
 .article-hero {
-  text-align: center !important;
+    position: relative;
+}
+
+.article-header {
+    position: relative;
+    z-index: 10;
+    margin: 100px auto 120px;
+    padding-left: 68px;
+    max-width: 749px;
+}
+
+@media screen and (max-width: 1070px) {
+    .article-header {
+        padding-left: 53px;
+        max-width: calc(507px + 53px);
+        margin: 100px auto 70px;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    .article-header {
+        padding-left: 0;
+        margin: 100px auto 70px;
+        max-width: 480px;
+    }
 }
 
 .article-hero-heading {
-  text-align: center !important;
-  margin: 0 auto 15px !important;
-  max-width: 880px !important;
-  font-size: 48px !important;
+    font-size: 48px;
+    font-family: var(--serif);
+    margin-bottom: 25px;
+    font-weight: bold;
+    line-height: 1.32;
+}
+
+@media screen and (max-width: 735px) {
+    .article-hero-heading {
+        margin-bottom: 20px;
+        font-size: 36px;
+    }
 }
 
 .article-hero-subtitle {
-  text-align: center !important;
-  margin: 0 auto !important;
+    padding: 10px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    font-size: 18px;
+    color: var(--grey);
 }
 
 .article-meta {
-  text-align: center !important;
-  margin: 0 auto !important;
-  font-size: 16px !important;
-  color: var(--secondary) !important;
+    display: flex;
+    font-size: 16px;
+    color: var(--grey);
 }
 
 .article-meta::before,
 .article-meta > *::before {
-  content: none !important;
-}
-
-.bio-container {
-  text-align: center;
-}
-
-.bio-text {
-  font-size: 18px;
-  color: var(--secondary);
-  margin: 15px 0;
-}
-
-.bio-text::before {
-  content: none !important;
+    content: none;
 }
 
 /* Logo color fixes - using theme variables */
