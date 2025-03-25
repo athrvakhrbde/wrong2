@@ -13,6 +13,9 @@ outputs:
 taxonomies:
   author: authors
 
+permalinks:
+  post: /post/:title/
+
 params:
   description: "Exploring unconventional perspectives on human relationships."
   hero:
