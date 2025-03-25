@@ -127,10 +127,19 @@ html, body {
 }
 
 /* Logo color fixes */
-.nav-container .logo svg path {
+header .logo svg path {
     fill: #000 !important;
 }
 
-[data-theme="dark"] .nav-container .logo svg path {
+[data-theme="dark"] header .logo svg path {
+    fill: #fff !important;
+}
+
+/* Override any other logo styles */
+.logo svg path {
+    fill: #000 !important;
+}
+
+[data-theme="dark"] .logo svg path {
     fill: #fff !important;
 } 
