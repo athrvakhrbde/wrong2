@@ -124,4 +124,13 @@ html, body {
     flex-direction: column !important;
     gap: 20px !important;
   }
+}
+
+/* Logo color fixes */
+.logo .change-fill {
+    fill: #000 !important;
+}
+
+[data-theme="dark"] .logo .change-fill {
+    fill: #fff !important;
 } 
