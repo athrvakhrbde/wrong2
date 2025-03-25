@@ -28,6 +28,35 @@ html, body {
   max-width: 800px;
 }
 
+/* Post page styles */
+.article-hero {
+  text-align: center !important;
+}
+
+.article-hero-heading {
+  text-align: center !important;
+  margin: 0 auto 15px !important;
+  max-width: 880px !important;
+  font-size: 48px !important;
+}
+
+.article-hero-subtitle {
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+.article-meta {
+  text-align: center !important;
+  margin: 0 auto !important;
+  font-size: 16px !important;
+  color: var(--secondary) !important;
+}
+
+.article-meta::before,
+.article-meta > *::before {
+  content: none !important;
+}
+
 .bio-container {
   text-align: center;
 }
